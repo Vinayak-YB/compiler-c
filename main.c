@@ -61,21 +61,17 @@ TokenKeyword *generate_keyword(char current, FILE *file)
     while(isalpha(current) && current != EOF)
     {
         keyword[keyword_index] = current;
+        keyword_index++;
         current = fgetc(file);
     }
-    
-    char keyword_str[keyword_index];
-    
-    for(int i = 0; i < keyword_index; i++)
-    {
-        keyword_str[i] = keyword[i];
-    }
 
-    if(keyword_str == 'exit')
+    if(strcmp(keyword, "exit") == 0)
     {
         token->type = EXIT;
+        printf("Token type exit\n");
         return token;
     }
+    
 }
 
 void lexer(FILE *file)
@@ -102,7 +98,7 @@ void lexer(FILE *file)
         }
         else if(isalpha(current))
         {
-            printf("Found character %c\n", current);
+            TokenKeyword *testKeyword = generate_keyword(current, file);
         }
 
         current = fgetc(file);

@@ -1,6 +1,6 @@
 # COMPILER - C 
 
-A compiler is a program that translates source code written in a high level language into low level language then can be executed by a computer,
+A compiler is a program that translates source code written in a high level language into low level language then can be executed by a computer.
 
 ### LEXER -> PARSER -> CODE GENERATOR 
 
